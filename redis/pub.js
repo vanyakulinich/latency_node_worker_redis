@@ -22,7 +22,7 @@ redis.on('ready', async () => {
     };
 
     redis.publish('test', JSON.stringify(message));
-    await new Promise((r) => setTimeout(() => r())); // wait till next iteration of event loop, otherwise redis looses msgs
+    await new Promise((resolve) => setTimeout(() => resolve())); // wait till next iteration of event loop, otherwise redis looses msgs
     itteration++;
   }
 });
