@@ -19,9 +19,10 @@ const worker = new Worker('./worker');
 
   while (itteration <= 1000) {
     let i = itteration;
-    // await new Promise((r) => setTimeout(() => r())); // if enable delay, each post will be on iteration of event loop
+    await new Promise((r) => setTimeout(() => r())); // if enable delay, each post will be on iteration of event loop
     worker.postMessage({
-      date: Date.now(),
+      // date: Date.now(),
+      date: process.hrtime.bigint(),
       json,
       fileSizeInKB,
       itteration: i,
