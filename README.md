@@ -15,7 +15,7 @@ Goal: measure roughly latency between:
 npm run test:worker
 # posts 1000 messages to worker thread with object including json 1.7mb
 # outputs time latency in ms for each message
-# time measurement relies on process.hrtime.bigint to stick to nanoseconds
+# time measurement relies roughly on Date.now()
 
 npm run test:redis
 # posts 1000 messages to worker thread with object including json 1.7mb
