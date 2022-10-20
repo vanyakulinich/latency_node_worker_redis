@@ -19,12 +19,13 @@ redis.on('ready', async () => {
       json: jsonObj,
       fileSizeInKB,
       itteration,
-      pub: 1,
+      pub: 3,
     };
 
     redis.publish('test', JSON.stringify(message));
     await new Promise((resolve) => setTimeout(() => resolve())); // wait till next iteration of event loop, otherwise redis looses msgs
     // await new Promise((resolve) => setTimeout(() => resolve(), 50)); // when multiple pubs (simulate many servers), to avoid fail - here we are in single js heap and event loop
+
     itteration++;
   }
 });
